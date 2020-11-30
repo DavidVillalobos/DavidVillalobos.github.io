@@ -1,0 +1,18 @@
+* { 
+    padding: 0; 
+    margin: 0;  
+}
+
+body { 
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover;
+}
+
+canvas {
+    margin-left: 13%;
+    margin-right: 13%;
+    margin-top: 5%;
+    background-color: rgba(6, 29, 48, 0.412)
+}
