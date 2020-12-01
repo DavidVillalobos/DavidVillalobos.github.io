@@ -8,7 +8,6 @@ body {
     background-repeat: no-repeat; 
     background-size: cover;
     background-color: rgb(53, 45, 43)
-    position: absolute;
 }
 
 canvas {
