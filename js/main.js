@@ -18,7 +18,7 @@ var leftPressed = false;
 var brickRowCount = 10;
 var brickColumnCount = 5;
 var brickWidth = 75;
-var brickHeight = 17;
+var brickHeight = 15;
 var brickPadding = 15;
 var brickOffsetTop = 60;
 var brickOffsetLeft = 60;
@@ -27,8 +27,11 @@ var score = 0;
 var lives = 3;
 
 var colorBall = "#F6FA9E"
-var colorPaddle = "#E66E2B"
+var colorPaddle = "#527C6A"
 var colorsBrick = ["#1E57EF", "#87EF1E", "#1EEFEF", "#EF1F1E", "#F8F414", "#DE0CF3"];
+var ColorFont = "#000000"
+
+var Font = "550 20px Arial"
 
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
@@ -60,7 +63,7 @@ function keyUpHandler(e) {
     }
 }
 function mouseMoveHandler(e) {
-    var relativeX = e.clientX - canvas.offsetLeft;
+    var relativeX = e.clientX - canvas.offsetLeft - paddleWidth;
     if(relativeX - paddleWidth/2 > 0 && relativeX + paddleWidth/2 < canvas.width) {
         paddleX = relativeX - paddleWidth/2;
     }
@@ -73,7 +76,7 @@ function getTouches(evt) {
 
 function handleTouchStart(evt) {
     const firstTouch = getTouches(evt)[0];                                      
-    var relativeX = firstTouch.clientX;     
+    var relativeX = firstTouch.clientX + paddleWidth;     
     if(relativeX - paddleWidth/2  > 0 && relativeX + paddleWidth/2 < canvas.width) {
         paddleX = relativeX - paddleWidth/2;
     }                                                                      
@@ -111,7 +114,31 @@ function drawBall() {
 }
 function drawPaddle() {
     ctx.beginPath();
-    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight-5);
+    ctx.fillStyle = colorPaddle;
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(paddleX, canvas.height- paddleHeight/3, paddleHeight/2, 0, Math.PI*2);
+    ctx.fillStyle = "#000000";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(paddleX+paddleWidth, canvas.height- paddleHeight/3, paddleHeight/2, 0, Math.PI*2);
+    ctx.fillStyle = "#000000";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(paddleX, canvas.height- paddleHeight/3, paddleHeight/4, 0, Math.PI*2);
+    ctx.fillStyle = colorPaddle;
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(paddleX+paddleWidth, canvas.height- paddleHeight/3, paddleHeight/4, 0, Math.PI*2);
     ctx.fillStyle = colorPaddle;
     ctx.fill();
     ctx.closePath();
@@ -134,18 +161,18 @@ function drawBricks() {
     }
 }
 function drawScore() {
-    ctx.font = "22px Arial";
-    ctx.fillStyle = "#F6FA9E";
+    ctx.font = Font;
+    ctx.fillStyle = ColorFont;
     ctx.fillText("Puntaje: " + score, 25, 20);
 }
 function drawVelocity() {
-    ctx.font = "22px Arial";
-    ctx.fillStyle = "#F6FA9E";
+    ctx.font = Font;
+    ctx.fillStyle = ColorFont;
     ctx.fillText("Velocidad: " + Math.trunc((Math.abs(dx) + Math.abs(dy)) / 2) , canvas.width/3, 20);
 }
 function drawLives() {
-    ctx.font = "22px Arial";
-    ctx.fillStyle = "#F6FA9E";
+    ctx.font = Font;
+    ctx.fillStyle = ColorFont;
     ctx.fillText("Vidas: " + lives, canvas.width-110, 20);
 }
 

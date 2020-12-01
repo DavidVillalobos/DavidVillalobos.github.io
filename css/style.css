@@ -6,14 +6,17 @@
 body { 
     background-image: url("../img/background.png");
     background-repeat: no-repeat; 
-    background-position: center;
     background-size: cover;
-    width: 100%;
-    height: 100%;    
+    background-color: rgb(53, 45, 43)
+    position: absolute;
 }
 
 canvas {
+    background-color: rgba(6, 29, 48, 0.412);
+}
+
+#myCanvas{
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(6, 29, 48, 0.412)
 }
