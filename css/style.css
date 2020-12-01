@@ -7,11 +7,11 @@ body {
     background-image: url("../img/background.png");
     background-repeat: no-repeat; 
     background-size: cover;
-    background-color: rgb(53, 45, 43)
+    background-color: rgb(53, 45, 43);
 }
 
 canvas {
-    background-color: rgba(6, 29, 48, 0.412);
+    background-color: rgba(6, 29, 48, 0.261);
 }
 
 #myCanvas{
