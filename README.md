@@ -1,7 +1,5 @@
 # DavidVillalobos.github.io
 
-Este es un juego simple de dodgeball con la 
-finalidad de aprender sobre frameworks de 
-videojuegos y sobre github pages
-
-El juego esta hecho puramente de javascript
+This is a simple dodgeball game with the purpose of   
+learning about frameworks videogames and about github pages  
+The game is made purely from javascript   
